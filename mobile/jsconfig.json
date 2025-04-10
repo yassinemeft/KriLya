@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+  },
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+, "components/HapticTab.jsx", "constants/Colors.js", "hooks/useColorScheme.js", "hooks/useColorScheme.web.js", "hooks/useThemeColor.js"  ]
+}
+
