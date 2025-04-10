@@ -55,10 +55,23 @@ Ensure your .env file is configured for database and API settings.
 
 ```plaintext
 KriLya/
-├── mobile/              # React Native app
+├── mobile/                 # React Native frontend (Expo)
+│   ├── assets/
+│   ├── components/
+│   ├── app/
+│   ├── package.json
 │   └── ...
-├── backend-laravel/     # Laravel backend
+│
+├── backend-laravel/        # Laravel backend
+│   ├── app/
+│   ├── database/
+│   ├── routes/
+│   ├── resources/
+│   ├── public/
+│   ├── .env.example
+│   ├── artisan
 │   └── ...
+│
 ├── .gitignore
 └── README.md
 ```
