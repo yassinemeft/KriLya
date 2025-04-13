@@ -24,6 +24,7 @@ export default function HomeScreen() {
 
   return (
     <View
+      style={{ pointerEvents: 'auto' }} // Updated to use style.pointerEvents
       className={`flex-1 justify-center items-center `}
     >
       {loading ? (
