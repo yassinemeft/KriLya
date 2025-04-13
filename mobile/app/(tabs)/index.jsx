@@ -44,6 +44,9 @@ export default function HomeScreen() {
       >
         <Text className="text-white font-bold"> Test Button</Text>
       </TouchableOpacity>
+      <Text className="text-primary text-lg font-bold">This is Primary (Red)</Text>
+      <Text className="text-secondary text-lg font-bold mt-4">This is Secondary (Blue)</Text>
+      <Text className="text-tertiary text-lg font-bold mt-4">This is Tertiary (Green)</Text>
     </View>
   );
 }
