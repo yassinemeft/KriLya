@@ -12,6 +12,7 @@ mobile/.cache/
 mobile/android/
 mobile/ios/
 mobile/dist/
+mobile/expo-env.d.ts
 
 # === Laravel Backend ===
 backend-laravel/vendor/
