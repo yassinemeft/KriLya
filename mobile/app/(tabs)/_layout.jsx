@@ -1,9 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Platform } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ActivityIndicator } from 'react-native';
-import axios from 'axios';
-import { Link } from 'expo-router';
+import React, {  } from 'react';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
