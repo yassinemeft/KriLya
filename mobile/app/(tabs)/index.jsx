@@ -9,7 +9,7 @@ export default function HomeScreen() {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.0.107:8000/api/test')
+    axios.get('http://192.168.0.104:8000/api/test')
       .then(response => {
         setMessage(response.data.message);
         setLoading(false);
@@ -36,7 +36,7 @@ export default function HomeScreen() {
           {message}
         </Text>
       )}
-      <Text className={`mt-4 `}>
+      <Text className="mt-4">
         --Yassine--
       </Text>
       <TouchableOpacity
