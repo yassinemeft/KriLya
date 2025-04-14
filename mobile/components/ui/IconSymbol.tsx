@@ -12,6 +12,7 @@ const MAPPING = {
   'person.fill': 'account',
   'settings': 'settings',
   'robot.fill': 'robot',
+  'send.fill': 'send',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
