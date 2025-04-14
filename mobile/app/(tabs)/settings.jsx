@@ -22,7 +22,7 @@ export default function SettingsScreen() {
   const renderMessage = ({ item }) => (
     <View
       className={`p-3 my-2 rounded ${
-        item.role === 'user' ? 'bg-blue-500 self-end' : 'bg-gray-300 self-start'
+        item.role === 'user' ? 'bg-tertiary self-end' : 'bg-gray-300 self-start'
       }`}
     >
       <Text className={`${item.role === 'user' ? 'text-white' : 'text-black'}`}>
@@ -46,7 +46,7 @@ export default function SettingsScreen() {
           placeholder="Type your message..."
           className="flex-1 border border-gray-300 rounded px-4 py-2 mr-2"
         />
-        <Button title="Send" onPress={handleSend} />
+        <Button title="Send" color="green" onPress={handleSend} />
       </View>
     </KeyboardAvoidingView>
   );
