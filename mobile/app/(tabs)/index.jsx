@@ -10,6 +10,7 @@ export default function HomeScreen() {
 
   useEffect(() => {
 
+
     axios.get('http://127.0.0.1:8000/api/test')  //Replace with your IP---192.168.0.20---Change this if testing on a real phone
 
 
@@ -24,30 +25,18 @@ export default function HomeScreen() {
       });
   }, []);
 
-
   return (
-    <View
-      style={{ pointerEvents: 'auto' }} // Updated to use style.pointerEvents
-      className={`flex-1 justify-center items-center `}
-    >
+    <View className="flex-1 justify-center items-center bg-gray-100">
       {loading ? (
         <ActivityIndicator size="large" color="blue" />
       ) : (
-        <Text
-          className={`text-lg font-bold `}
-        >
-          {message}
-        </Text>
+        <Text className="text-lg font-bold text-gray-800">{message}</Text>
       )}
-      <Text className={`mt-4 `}>
-        --Yassine--
-      </Text>
-      <TouchableOpacity
-        className="mt-4 px-4 py-2 bg-blue-500 rounded"
-      >
-        <Text className="text-white font-bold"> Test Button</Text>
+      <Text className="mt-4 text-gray-600">--Yassine--</Text>
+      <TouchableOpacity className="mt-4 px-4 py-2 bg-blue-500 rounded shadow-lg">
+        <Text className="text-white font-bold">Test Button</Text>
       </TouchableOpacity>
-      <Text className="text-primary text-lg font-bold">This is Primary (Red)</Text>
+      <Text className="text-primary text-lg font-bold mt-4">This is Primary (Red)</Text>
       <Text className="text-secondary text-lg font-bold mt-4">This is Secondary (Blue)</Text>
       <Text className="text-tertiary text-lg font-bold mt-4">This is Tertiary (Green)</Text>
     </View>

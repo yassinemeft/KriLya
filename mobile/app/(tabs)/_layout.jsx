@@ -43,8 +43,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="settings" color={color} />,
+          title: 'DFSK (AI)',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="robot.fill" color={color} />,
         }}
       />
     </Tabs>
