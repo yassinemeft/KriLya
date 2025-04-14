@@ -16,5 +16,7 @@ mobile/dist/
 # === Laravel Backend ===
 backend-laravel/vendor/
 backend-laravel/.env
+backend-laravel/.env.example
 backend-laravel/storage/
 backend-laravel/bootstrap/cache/
+
