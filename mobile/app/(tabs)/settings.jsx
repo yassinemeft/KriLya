@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, FlatList, KeyboardAvoidingView } from 'react-native';
+import { View, TextInput, Button, FlatList, KeyboardAvoidingView, Text, StyleSheet } from 'react-native';
+import Markdown from 'react-native-markdown-display';
 import { askGroq } from '@/components/groqService';
 
 export default function SettingsScreen() {
@@ -25,9 +26,15 @@ export default function SettingsScreen() {
         item.role === 'user' ? 'bg-tertiary self-end' : 'bg-gray-300 self-start'
       }`}
     >
-      <Text className={`${item.role === 'user' ? 'text-white' : 'text-black'}`}>
-        {item.content}
-      </Text>
+      {item.role === 'ai' ? (
+        <Markdown
+          style={markdownStyles}
+        >
+          {item.content}
+        </Markdown>
+      ) : (
+        <Text className="text-white">{item.content}</Text>
+      )}
     </View>
   );
 
@@ -51,3 +58,18 @@ export default function SettingsScreen() {
     </KeyboardAvoidingView>
   );
 }
+
+const markdownStyles = StyleSheet.create({
+  body: { color: '#333', fontSize: 16 },
+  code_block: {
+      backgroundColor: '#e00ae',
+      padding: 8,
+      borderRadius: 4,
+      fontFamily: 'Courier',
+    },
+    code_inline: {
+      backgroundColor: '#eaeaea',
+      padding: 3,
+      borderRadius: 4,
+    },
+});
