@@ -10,9 +10,7 @@ export default function HomeScreen() {
 
   useEffect(() => {
 
-
-    axios.get('http://127.0.0.1:8000/api/test')  //Replace with your IP---192.168.0.20---Change this if testing on a real phone
-
+    axios.get('http://192.168.100.187:8000/api/test')
 
       .then(response => {
         setMessage(response.data.message);
