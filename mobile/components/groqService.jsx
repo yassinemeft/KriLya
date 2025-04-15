@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { API_URL } from '@env' ;
 
-const API_URL = 'http://192.168.0.105:8000/api/groq-chat'; // Replace with your Laravel API URL
+const API_URL = 'http://192.168.100.187:8000/api/groq-chat'; // Replace with your Laravel API URL
 
 export const askGroq = async (userMessage) => {
   try {
