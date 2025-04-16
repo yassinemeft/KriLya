@@ -13,6 +13,7 @@ const MAPPING = {
   'settings': 'settings',
   'robot.fill': 'robot',
   'send.fill': 'send',
+  'map': 'map', // Add mapping for the map icon
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
