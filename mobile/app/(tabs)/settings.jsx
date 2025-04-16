@@ -27,11 +27,7 @@ export default function SettingsScreen() {
       }`}
     >
       {item.role === 'ai' ? (
-        <Markdown
-          style={markdownStyles}
-        >
-          {item.content}
-        </Markdown>
+        <Markdown style={markdownStyles}>{item.content}</Markdown>
       ) : (
         <Text className="text-white">{item.content}</Text>
       )}
@@ -62,14 +58,15 @@ export default function SettingsScreen() {
 const markdownStyles = StyleSheet.create({
   body: { color: '#333', fontSize: 16 },
   code_block: {
-      backgroundColor: '#e00ae',
-      padding: 8,
-      borderRadius: 4,
-      fontFamily: 'Courier',
-    },
-    code_inline: {
-      backgroundColor: '#eaeaea',
-      padding: 3,
-      borderRadius: 4,
-    },
+    backgroundColor: '#f5f5f5',
+    padding: 8,
+    borderRadius: 4,
+    fontFamily: 'Courier',
+  },
+  code_inline: {
+    backgroundColor: '#eaeaea',
+    padding: 3,
+    borderRadius: 4,
+    fontFamily: 'Courier',
+  },
 });
