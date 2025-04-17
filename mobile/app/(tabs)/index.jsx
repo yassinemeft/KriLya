@@ -9,7 +9,7 @@ export default function HomeScreen() {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.100.187:8000/api/test')
+    axios.get('http://192.168.000.105:8000/api/test')
       .then(response => {
         setMessage(response.data.message);
         setLoading(false);
