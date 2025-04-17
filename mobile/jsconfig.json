@@ -4,7 +4,9 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "@i18n": ["./i18n.js"],
+      "@locales/*": ["./locales/*"]
     },
   },
   "extends": "expo/tsconfig.base",
