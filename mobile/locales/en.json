@@ -11,5 +11,7 @@
   "light_mode": "Light Mode",
   "switch_language": "Switch Language",
   "loading": "Loading...",
-  "error_message": "An error occurred. Please try again."
+  "error_message": "An error occurred. Please try again.",
+  "andro": "Andro",
+  "home": "Home"
 }
