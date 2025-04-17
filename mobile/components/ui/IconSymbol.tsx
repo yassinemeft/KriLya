@@ -15,6 +15,7 @@ const MAPPING = {
   'send.fill': 'send',
   'map': 'map', // Add mapping for the map icon
   'phone.fill': 'phone', // Add mapping for the phone icon
+  'cog.fill': 'cog', // Add mapping for the cog icon
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
