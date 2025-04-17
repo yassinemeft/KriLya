@@ -1,0 +1,17 @@
+{
+  "app_name": "KriLya",
+  "welcome": "Bienvenue à KriLya",
+  "rent": "Louer une maison",
+  "contact_us": "Contactez-nous",
+  "profile": "Profil",
+  "settings": "Paramètres",
+  "map": "Carte",
+  "language": "Langue",
+  "dark_mode": "Mode sombre",
+  "light_mode": "Mode clair",
+  "switch_language": "Changer de langue",
+  "loading": "Chargement...",
+  "error_message": "Une erreur s'est produite. Veuillez réessayer.",
+  "andro" :"Andro",
+  "home": "Accueil"
+}
