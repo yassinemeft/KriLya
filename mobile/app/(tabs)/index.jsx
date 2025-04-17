@@ -23,7 +23,9 @@ export default function HomeScreen() {
   };
 
   useEffect(() => {
+
     axios.get(`${API_URL}/test`) // Use the API URL from the config file
+
       .then(response => {
         setMessage(response.data.message);
         setLoading(false);
