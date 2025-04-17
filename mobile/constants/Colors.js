@@ -1,46 +1,44 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Colors used in the app. There are two sets of colors: light mode and dark mode.
+ * The colors are used for the background, text, and icons.
+ *
+ * The light mode colors are:
+ * - primary: The primary color of the app. Used for the background of the header and the color of the text.
+ * - secondary: The secondary color of the app. Used for the background of the bottom tab bar.
+ * - background: The background color of the app.
+ * - text: The color of the text.
+ * - tint: The color of the tint (the color of the icons).
+ * - tabIconDefault: The color of the icons in the bottom tab bar when they are not selected.
+ * - tabIconSelected: The color of the icons in the bottom tab bar when they are selected.
+ *
+ * The dark mode colors are:
+ * - primary: The primary color of the app. Used for the background of the header and the color of the text.
+ * - secondary: The secondary color of the app. Used for the background of the bottom tab bar.
+ * - background: The background color of the app.
+ * - text: The color of the text.
+ * - tint: The color of the tint (the color of the icons).
+ * - tabIconDefault: The color of the icons in the bottom tab bar when they are not selected.
+ * - tabIconSelected: The color of the icons in the bottom tab bar when they are selected.
  */
 
 export const Colors = {
-  /**
-   * The colors used in the app when the device is in light mode.
-   * primary: The primary color of the app. Used for the background of the header and the color of the text.
-   * secondary: The secondary color of the app. Used for the background of the bottom tab bar.
-   * background: The background color of the app.
-   * text: The color of the text.
-   * tint: The color of the tint (the color of the icons).
-   * tabIconDefault: The color of the icons in the bottom tab bar when they are not selected.
-   * tabIconSelected: The color of the icons in the bottom tab bar when they are selected.
-   */
   light: {
     primary: '#0a7ea4',
     secondary: '#687076',
     background: '#fff',
     text: '#11181C',
-    tint: '#0a7ea4',
+    tint: '#53b30e',
     tabIconDefault: '#687076',
     tabIconSelected: '#0a7ea4',
   },
-  /**
-   * The colors used in the app when the device is in dark mode.
-   * primary: The primary color of the app. Used for the background of the header and the color of the text.
-   * secondary: The secondary color of the app. Used for the background of the bottom tab bar.
-   * background: The background color of the app.
-   * text: The color of the text.
-   * tint: The color of the tint (the color of the icons).
-   * tabIconDefault: The color of the icons in the bottom tab bar when they are not selected.
-   * tabIconSelected: The color of the icons in the bottom tab bar when they are selected.
-   */
   dark: {
-    primary: '#fff',
+    primary: '#ffffff',
     secondary: '#9BA1A6',
     background: '#151718',
     text: '#ECEDEE',
-    tint: '#fff',
+    tint: '#bd0624',
     tabIconDefault: '#9BA1A6',
-    tabIconSelected: '#fff',
+    tabIconSelected: '#fff000',
   },
 };
 

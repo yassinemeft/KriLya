@@ -4,7 +4,9 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "@i18n": ["./i18n.js"],
+      "@locales/*": ["./locales/*"]
     },
   },
   "extends": "expo/tsconfig.base",
@@ -13,6 +15,6 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/HapticTab.jsx", "constants/Colors.js", "hooks/useColorScheme.js", "hooks/useColorScheme.web.js", "hooks/useThemeColor.js"  ]
+, "components/HapticTab.jsx", "constants/Colors.js", "hooks/useColorScheme.js", "hooks/useColorScheme.web.js", "hooks/useThemeColor.js", "app/(tabs)/_layout.web.jsx"  ]
 }
 
