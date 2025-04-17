@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ActivityIndicator, Platform, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { useTranslation } from 'react-i18next';
 
 export default function MapViewWithLocation() {
+  const { t } = useTranslation();
+
   if (Platform.OS === 'web') {
     return (
       <View style={styles.loading}>
-        <Text>Map is not supported on the web platform.</Text>
+        <Text>{t('map')}</Text>
+        <Text>{t('error_message')}</Text>
       </View>
     );
   }
@@ -17,39 +21,37 @@ export default function MapViewWithLocation() {
 
   const [houses, setHouses] = useState([
     {
-      name: 'Home',
+      name: t('home'),
       latitude: 31.512778,
-      longitude: -9.757278
+      longitude: -9.757278,
     },
     {
-      name: 'House 2',
+      name: t('house_2'),
       latitude: 31.514528,
-      longitude: -9.756611
-
+      longitude: -9.756611,
     },
     {
-      name: 'House 3',
+      name: t('house_3'),
       latitude: 31.51625,
-      longitude: -9.756722
+      longitude: -9.756722,
     },
     {
-      name: 'House 4',
+      name: t('house_4'),
       latitude: 31.50525,
-      longitude: -9.755861
-
+      longitude: -9.755861,
     },
     {
-      name: 'House 5',
+      name: t('house_5'),
       latitude: 31.497306,
-      longitude: -9.757778
-    }
+      longitude: -9.757778,
+    },
   ]);
 
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        console.log('Permission to access location was denied');
+        console.log(t('error_message'));
         return;
       }
 
@@ -70,6 +72,7 @@ export default function MapViewWithLocation() {
     return (
       <View style={styles.loading}>
         <ActivityIndicator size="large" color="#007AFF" />
+        <Text>{t('loading')}</Text>
       </View>
     );
   }
@@ -81,9 +84,9 @@ export default function MapViewWithLocation() {
       showsUserLocation={true}
       showsMyLocationButton={true}
     >
-      {houses.map(house => (
+      {houses.map((house, index) => (
         <Marker
-          key={house.name}
+          key={index}
           coordinate={{ latitude: house.latitude, longitude: house.longitude }}
           title={house.name}
         />
