@@ -1,8 +1,5 @@
 import { Slot, Tabs } from "expo-router";
 import React from "react";
-import { Card } from "@/components/ui/card";
-import { Heading } from "@/components/ui/heading";
-import { Text as RNText } from "@/components/ui/text";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Divider } from "@/components/ui/divider";
@@ -62,7 +59,10 @@ export default function TabLayout() {
         </Link>
       </HStack>
     </HStack>
+
       <Slot />
+
+
     </View>
   );
 }
