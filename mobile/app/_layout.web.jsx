@@ -1,13 +1,18 @@
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import "../global.css"; // Ensure this file exists in the root directory
 
 // app/_layout.web.jsx
-import { View, Text } from 'react-native';
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import React from "react";
 
-export default function WebLayout() {
+export default function WebLayout({ children }) {
+
+
+  
+
   return (
-    <View style={{ padding: 40 }}>
-      <Text style={{ fontSize: 24 }}>🌐 Web Layout ici</Text>
-    </View>
+    <ThemeProvider>
+        <Slot />
+    </ThemeProvider>
   );
 }
