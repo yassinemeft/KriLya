@@ -57,6 +57,9 @@ export default function TabLayout() {
         <Link href="/register">
           <LinkText>Sign up</LinkText>
         </Link>
+        <Link href ="/contactus">
+        <LinkText> Contact us </LinkText>
+        </Link>
       </HStack>
     </HStack>
 
