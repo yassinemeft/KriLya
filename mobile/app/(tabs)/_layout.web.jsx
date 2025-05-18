@@ -11,6 +11,7 @@ import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { View } from "react-native";
+import { ScrollView } from "react-native";
 
 import "../../i18n"; // Load translations
 import { I18nextProvider } from "react-i18next";
@@ -22,7 +23,7 @@ export default function TabLayout() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <View>
+    <ScrollView>
     <HStack
       className="flex flex-row items-center justify-between h-14 px-7
       bg-brandBlue-500 text-white dark:bg-black dark:text-brandRed-500 shadow"
@@ -63,7 +64,7 @@ export default function TabLayout() {
       <Slot />
 
 
-    </View>
+    </ScrollView>
   );
 }
 
