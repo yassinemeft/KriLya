@@ -26,9 +26,11 @@ export default function TabLayout() {
   const { theme, toggleTheme } = useTheme();
 
 
+
   const { t, i18n } = useTranslation();
   const [locale, setLocale] = useState(
     i18n.language.startsWith("ar") ? "ar" : "fr"
+
   );
 
 
