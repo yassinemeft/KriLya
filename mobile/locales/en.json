@@ -54,5 +54,16 @@
   "view_details": "View Details",
   "night": "Night",
   "rentals": "Rentals",
-  "view_profile": "View Profile"
+  "view_profile": "View Profile",
+  "sign_in": "Sign In",
+  "sign_up": "Sign Up",
+  "first_name": "First Name",
+  "last_name": "Last Name",
+  "email": "Email",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "forgot_password": "Forgot Password?",
+  "login": "Login",
+  "register": "Register",
+  "already_have_an_account": "Already have an account?"
 }
