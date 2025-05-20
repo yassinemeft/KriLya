@@ -54,5 +54,16 @@
   "view_details": "عرض التفاصيل",
   "night": "ليلة",
   "rentals": "إيجارات",
-  "view_profile": "عرض الملف الشخصي"
+  "view_profile": "عرض الملف الشخصي",
+  "sign_in": "تسجيل الدخول",
+  "sign_up": "إنشاء حساب",
+  "first_name": "الاسم الاول",
+  "last_name": "اسم العائلة",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "confirm_password": "تأكيد كلمة المرور",
+  "forgot_password": "نسيت كلمة المرور؟",
+  "login": "تسجيل الدخول",
+  "register": "تسجيل",
+  "already_have_an_account": "هل لديك حساب بالفعل؟"
 }
