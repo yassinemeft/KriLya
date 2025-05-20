@@ -11,8 +11,10 @@ import { Link, LinkText } from "@/components/ui/link";
 import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
+
 import { View, ScrollView, SafeAreaView } from "react-native";
 import { useTranslation } from "react-i18next";
+
 
 import "../../i18n"; // Load translations
 import { I18nextProvider } from "react-i18next";
@@ -23,10 +25,12 @@ export default function TabLayout() {
 
   const { theme, toggleTheme } = useTheme();
 
+
   const { t, i18n } = useTranslation();
   const [locale, setLocale] = useState(
     i18n.language.startsWith("ar") ? "ar" : "fr"
   );
+
 
   const toggleLanguage = () => {
     const localeMap = {
@@ -38,6 +42,7 @@ export default function TabLayout() {
     setLocale(newLocale);
     i18n.changeLanguage(newLocale); // au lieu de i18n.locale = ...
   };
+
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -92,6 +97,7 @@ export default function TabLayout() {
         <Slot />
       </ScrollView>
     </SafeAreaView>
+
   );
 }
 
