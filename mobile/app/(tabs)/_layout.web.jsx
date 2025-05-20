@@ -11,7 +11,7 @@ import { Link, LinkText } from "@/components/ui/link";
 import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, SafeAreaView } from "react-native";
 import { useTranslation } from "react-i18next";
 
 import "../../i18n"; // Load translations
@@ -40,53 +40,58 @@ export default function TabLayout() {
   };
 
   return (
-    <ScrollView>
-      <HStack
-        className="flex flex-row items-center justify-between h-14 px-7
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ position: "absolute", width: "100%", zIndex: 1 }}>
+        <HStack
+          className="flex flex-row items-center justify-between h-14 px-7
       bg-brandBlue-500 text-white dark:bg-black dark:text-brandGreen-500 shadow"
-      >
-        <Image
-          source={require("@/assets/images/logo.png")}
-          alt="KriLya Logo"
-          className="hidden sm:flex w-full max-w-[200px]"
-          resizeMode="contain"
-          size="xs"
-        />
-        <Icon className="sm:hidden flex" as={MenuIcon} />
-        <Button onPress={toggleTheme}>
-          <ButtonText>
-            {theme === "light" ? (
-              <Icon className="text-typography-500" as={SunIcon} />
-            ) : (
-              <Icon className="text-typography-500" as={MoonIcon} />
-            )}
-          </ButtonText>
-        </Button>
-        <Button  onPress={toggleLanguage}>
-          <ButtonText>{t("switch_language")}</ButtonText>
-        </Button>
-
-        <HStack className="space-x-2 hidden sm:flex items-center">
-          <Button variant="link" size="xs">
-            <ButtonText>Github</ButtonText>
+        >
+          <Image
+            source={require("@/assets/images/logo.png")}
+            alt="KriLya Logo"
+            className="hidden sm:flex w-full max-w-[200px]"
+            resizeMode="contain"
+            size="xs"
+          />
+          <Icon className="sm:hidden flex" as={MenuIcon} />
+          <Button onPress={toggleTheme}>
+            <ButtonText>
+              {theme === "light" ? (
+                <Icon className="text-typography-500" as={SunIcon} />
+              ) : (
+                <Icon className="text-typography-500" as={MoonIcon} />
+              )}
+            </ButtonText>
           </Button>
-          <Divider orientation="vertical" className="hidden mx-2.5" />
-          <Button variant="link" size="xs">
-            <ButtonText>Twitter</ButtonText>
+          <Button  onPress={toggleLanguage}>
+            <ButtonText>{t("switch_language")}</ButtonText>
           </Button>
-        </HStack>
 
-        <HStack className="space-x-2 hidden sm:flex items-center">
-          <Link href="/login">
-            <LinkText>Sign in</LinkText>
-          </Link>
-          <Divider orientation="vertical" className="mx-2.5" />
-          <Link href="/register">
-            <LinkText>Sign up</LinkText>
-          </Link>
+          <HStack className="space-x-2 hidden sm:flex items-center">
+            <Button variant="link" size="xs">
+              <ButtonText>Github</ButtonText>
+            </Button>
+            <Divider orientation="vertical" className="hidden mx-2.5" />
+            <Button variant="link" size="xs">
+              <ButtonText>Twitter</ButtonText>
+            </Button>
+          </HStack>
+
+          <HStack className="space-x-2 hidden sm:flex items-center">
+            <Link href="/login">
+              <LinkText>Sign in</LinkText>
+            </Link>
+            <Divider orientation="vertical" className="mx-2.5" />
+            <Link href="/register">
+              <LinkText>Sign up</LinkText>
+            </Link>
+          </HStack>
         </HStack>
-      </HStack>
-      <Slot />
-    </ScrollView>
+      </View>
+      <ScrollView style={{ marginTop: 56 }}>
+        <Slot />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
