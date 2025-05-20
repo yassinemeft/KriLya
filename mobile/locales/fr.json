@@ -54,5 +54,16 @@
   "view_details": "Voir les détails",
   "night": "Nuit",
   "rentals": "Locations",
-  "view_profile": "Voir le profil"
+  "view_profile": "Voir le profil",
+  "sign_in": "Se connecter",
+  "sign_up": "S'inscrire",
+  "first_name": "Prénom",
+  "last_name": "Nom de famille",
+  "email": "Email",
+  "password": "Mot de passe",
+  "confirm_password": "Confirmer le mot de passe",
+  "forgot_password": "Mot de passe oublé?",
+  "login": "Connexion",
+  "register": "S'inscrire",
+  "already_have_an_account": "Vous avez deja un compte?"  
 }
