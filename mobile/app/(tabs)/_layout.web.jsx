@@ -11,6 +11,12 @@ import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { View } from "react-native";
+import { FormControl, FormControlLabel } from "@/components/ui/form-control";
+import { Picker} from 'react-native'; 
+import NavBar from "@/components/ui/NavBar";
+import NavDropdown from "@/components/ui/NavDropdown";
+
+
 
 import "../../i18n"; // Load translations
 import { I18nextProvider } from "react-i18next";
@@ -60,8 +66,10 @@ export default function TabLayout() {
         <Link href ="/contactus">
         <LinkText> Contact us </LinkText>
         </Link>
+        <NavDropdown/>
       </HStack>
     </HStack>
+    
 
       <Slot />
 
@@ -69,6 +77,8 @@ export default function TabLayout() {
     </View>
   );
 }
+
+
 
 
 
