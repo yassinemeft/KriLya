@@ -15,7 +15,7 @@ export default function FeaturedPropertiesSection() {
       title: "Charming Riad with Patio",
       city: "Marrakesh",
       price: `1 200 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
+      img: "https://cdn-blog.zameen.com/blog/wp-content/uploads/2021/01/Blog-Cover-01-6.jpg",
     },
     {
       id: 2,
@@ -62,10 +62,10 @@ export default function FeaturedPropertiesSection() {
   ];
 
   return (
-    <View className="w-full px-4 py-20 bg-white dark:bg-gray-900">
+    <View className="w-full px-4 py-20 bg-white dark:bg-gray-900 mb-4">
       <Heading
         size="lg"
-        className="mb-10 text-center font-bold text-gray-800 dark:text-white"
+        className="mb-10 text-center font-bold text-3xl tracking-tight text-gray-900 dark:text-brandGreen-500"
       >
         {t("featured_properties")}
       </Heading>
@@ -74,7 +74,7 @@ export default function FeaturedPropertiesSection() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        className="sm:hidden px-1"
+        className="sm:hidden px-1 py-2"
       >
         {listings.map((property) => (
           <PropertyCard key={property.id} {...property} className="mr-4 w-64" />
@@ -102,12 +102,12 @@ function PropertyCard({ title, city, price, img, className = "" }) {
         source={{ uri: img }}
         className="h-40 w-full object-cover"
       />
-      <View className="p-4 space-y-1">
+      <View className="p-3 space-y-1">
         <Text className="text-lg font-semibold text-gray-900 dark:text-white leading-snug">
           {title}
         </Text>
         <Text className="text-sm text-gray-600 dark:text-gray-300">{city}</Text>
-        <Text className="text-base font-bold text-brandRed-500 dark:text-brandGreen-500">{price}</Text>
+        <Text className="text-md font-bold text-brandRed-500 dark:text-brandGreen-500">{price}</Text>
         <Button
           variant="solid"
           action="secondary"
@@ -119,5 +119,7 @@ function PropertyCard({ title, city, price, img, className = "" }) {
     </Card>
   );
 }
+
+
 
 
