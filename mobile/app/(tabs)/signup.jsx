@@ -6,7 +6,9 @@ import { Input, InputField } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { View } from "react-native";
+import { useTranslation } from "react-i18next";
 export default function Signup() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: "",
     lastName: "",
@@ -28,11 +30,11 @@ export default function Signup() {
       {/* big screen */}
       <Box className="w-full max-w-md self-center bg-gray-800  p-8 shadow-lg mt-10">
         <Heading className="text-center text-2xl font-bold mb-6 text-white">
-          Créer un compte
+          {t("sign_up")}
         </Heading>
         <VStack space="6" className="items-center">
           <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
-            Nom :
+            {t("first_name")} :
           </Text>
           <Input
             value={form.name}
@@ -42,7 +44,7 @@ export default function Signup() {
             <InputField type="text" placeholder="Votre Nom" />
           </Input>
           <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
-            Prénom :
+            {t("last_name")} :
           </Text>
           <Input
             value={form.name}
@@ -53,7 +55,7 @@ export default function Signup() {
           </Input>
 
           <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
-            Email :
+            {t("email")} :
           </Text>
           <Input
             keyboardType="email-address"
@@ -65,7 +67,7 @@ export default function Signup() {
           </Input>
 
           <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
-            Mot de passe :
+            {t("password")} :
           </Text>
           <Input
             placeholder="Mot de passe"
@@ -78,7 +80,7 @@ export default function Signup() {
             <InputField type="password" placeholder="Votre Mot de passe" />
           </Input>
           <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
-            Confirmer le mot de passe :
+            {t("confirm_password")} :
           </Text>
           <Input
             secureTextEntry
@@ -97,12 +99,12 @@ export default function Signup() {
             className="bg-blue-600 rounded mt-4 w-72 data-[hover=true]:bg-brandRed-300 dark:data-[hover=true]:bg-brandGreen-300"
           >
             <Text className="text-white font-semibold text-center ">
-              S’inscrire
+              {t("sign_up")}
             </Text>
           </Button>
         </VStack>
         <Text className="text-center text-gray-400 mt-6">
-          Déjà un compte ? Connecte-toi.
+          {t("already_have_an_account")}
         </Text>
       </Box>
     </View>
