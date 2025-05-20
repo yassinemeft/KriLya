@@ -162,3 +162,5 @@ export default function SearchSection() {
   );
 }
 // This component is a search section for a real estate application. It includes an input field for searching properties, dropdowns for selecting property type and number of rooms, and a search button. The layout is responsive, adapting to both large and small screens.
+
+
