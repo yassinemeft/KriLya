@@ -5,6 +5,7 @@ module.exports = {
   darkMode: 'class', // Enable dark mode support
   content: [
     './app/**/*.{html,js,jsx,ts,tsx}',
+    './app/(tabs)/**/*.{html,js,jsx,ts,tsx}',
     './src/core-components/**/**/*.{html,js,jsx,ts,tsx}',
     './components/**/*.{html,js,jsx,ts,tsx,mdx}',
     './components/ui/**/*.{html,js,jsx,ts,tsx,mdx}',
