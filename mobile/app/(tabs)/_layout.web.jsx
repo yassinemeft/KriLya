@@ -11,9 +11,9 @@ import { Link, LinkText } from "@/components/ui/link";
 import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
-
 import { View, ScrollView, SafeAreaView } from "react-native";
 import { useTranslation } from "react-i18next";
+
 
 
 import "../../i18n"; // Load translations
@@ -99,7 +99,7 @@ export default function TabLayout() {
         <Slot />
       </ScrollView>
     </SafeAreaView>
-
   );
 }
+
 
