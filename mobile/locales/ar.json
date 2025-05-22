@@ -76,5 +76,6 @@
   "middleman": "وسيط",
   "login": "تسجيل الدخول",
   "register": "تسجيل",
-  "already_have_an_account": "هل لديك حساب بالفعل؟"
+  "already_have_an_account": "هل لديك حساب بالفعل؟",
+  "don't_have_an_account": "لا يوجد لديك حساب؟"
 }

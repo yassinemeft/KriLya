@@ -76,5 +76,6 @@
   "middleman": "Middleman",
   "login": "Login",
   "register": "Register",
-  "already_have_an_account": "Already have an account?"
+  "already_have_an_account": "Already have an account?",
+  "don't_have_an_account": "Don't have an account?"
 }

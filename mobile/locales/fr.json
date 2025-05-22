@@ -76,5 +76,6 @@
   "middleman": "Middleman",
   "login": "Connexion",
   "register": "S'inscrire",
-  "already_have_an_account": "Vous avez deja un compte?"  
+  "already_have_an_account": "Vous avez deja un compte?",
+  "don't_have_an_account": "Vous n'avez pas de compte?",
 }
