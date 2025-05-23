@@ -19,3 +19,4 @@ Route::post('/groq-chat', [GroqController::class, 'chat']);
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/login', [LoginController::class, 'login']);
+
