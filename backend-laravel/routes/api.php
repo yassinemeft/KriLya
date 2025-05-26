@@ -6,6 +6,7 @@ use App\Http\Controllers\api\TestController;
 use App\Http\Controllers\api\GroqController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Api\HouseController;
 
 
 Route::get('/user', function (Request $request) {
@@ -20,3 +21,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::post('/login', [LoginController::class, 'login']);
 
+Route::get('/featured-houses', [HouseController::class, 'featured']);
+
+Route::get('/houses/{id}', [HouseController::class, 'show']);
