@@ -12,6 +12,7 @@ mobile/.cache/
 mobile/android/
 mobile/ios/
 mobile/dist/
+mobile/ApiConfig.js
 
 # === Laravel Backend ===
 backend-laravel/vendor/
