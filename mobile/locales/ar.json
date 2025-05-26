@@ -51,6 +51,8 @@
   "featured_properties": "العقارات المميزة",
   "featured_properties_desc": "استكشف اختيارنا المميز من العقارات التي تبرز لجودتها وقيمتها. تم اختيار هذه العقارات المميزة بعناية لتقديم أفضل الخيارات المتاحة في السوق.",
   "property_details": "تفاصيل العقار",
+  "house_details": "تفاصيل المنزل",
+  "house_type": "نوع المنزل",
   "view_details": "عرض التفاصيل",
   "night": "ليلة",
   "rentals": "إيجارات",
@@ -64,6 +66,8 @@
   "first_name": "الاسم الاول",
   "last_name": "اسم العائلة",
   "email": "البريد الإلكتروني",
+  "phone": "الهاتف",
+  "region": "المنطقة",
   "address": "العنوان",
   "your_address": "عنوانك",
   "company_name": "اسم الشركة",
@@ -77,5 +81,14 @@
   "login": "تسجيل الدخول",
   "register": "تسجيل",
   "already_have_an_account": "هل لديك حساب بالفعل؟",
-  "don't_have_an_account": "لا يوجد لديك حساب؟"
+  "don't_have_an_account": "لا يوجد لديك حساب؟",
+  "available_from": "متاح من",
+  "available_to": "متاح حتى",
+  "bedrooms": "غرف نوم",
+  "bathrooms": "حمامات",
+  "capacity": "السعة",
+  "amenities": "المرافق",
+  "listed_by": "مقدم بواسطة",
+  "agent_at": "وسيط في",
+  "house_location": "موقع المنزل"
 }
