@@ -1,0 +1,147 @@
+id               INT AUTO_INCREMENT
+user_id          INT
+title            VARCHAR
+description      TEXT
+price_per_night  DECIMAL
+address          VARCHAR
+latitude         DOUBLE
+longitude        DOUBLE
+house_type       ENUM('apartment', 'villa', 'studio', 'house')
+bedrooms         INT
+bathrooms        INT
+capacity         INT
+area             INT
+images           JSON
+amenities        JSON
+verified         BOOLEAN
+status           ENUM('pending', 'approved', 'rejected')
+created_at       TIMESTAMP
+updated_at       TIMESTAMP
+
+
+
+----------------------------
+
+Field	Type	Description
+title	String	Title of the listing (e.g., "Cozy Apartment in Essaouira")
+description	Text	Full description of the house
+price_per_night	Number	Price per night or per month
+property_type	Enum/String	e.g., apartment, villa, room, house
+available_from	Date	Start date of availability
+available_to	Date	End date of availability (optional)
+is_available	Boolean	Current availability status
+
+📍 Location Details
+Precise location for map and filtering:
+
+Field	Type	Description
+address	String	Full address
+city	String	City name (e.g., Essaouira)
+region	String	Optional: region/province
+latitude	Decimal	Latitude for map
+longitude	Decimal	Longitude for map
+
+🏗️ House Features
+Details that help users filter/search:
+
+Field	Type	Description
+bedrooms	Integer	Number of bedrooms
+bathrooms	Integer	Number of bathrooms
+max_guests	Integer	Max people allowed
+area_m2	Integer	Size in square meters
+furnished	Boolean	Is it furnished?
+wifi	Boolean	Wi-Fi availability
+air_conditioning	Boolean	AC available?
+kitchen	Boolean	Kitchen available?
+balcony	Boolean	Has balcony?
+
+🖼️ Images
+You should allow upload of one or more photos:
+
+Field	Type	Description
+images	Array of URLs / uploads	Stored in Cloudinary or local storage
+
+👤 Intermediary/Owner Details
+To verify who submitted the house:
+
+Field	Type	Description
+owner_id	Foreign Key (user/intermediary)	Links the house to the submitting user
+phone	String	Contact phone
+email	String	Contact email (optional)
+verification_status	Enum (pending/approved/rejected)	Admin moderation
+
+⏱️ Optional Metadata
+Field	Type	Description
+created_at	Timestamp	Auto filled
+updated_at	Timestamp	Auto filled
+
+----------------------------
+
+
+
+id INT AUTO_INCREMENT PRIMARY KEY,
+  owner_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  address VARCHAR(255),
+  city VARCHAR(100),
+  state VARCHAR(100),
+  country VARCHAR(100),
+  latitude DECIMAL(10,7),
+  longitude DECIMAL(10,7),
+  price_per_night DECIMAL(10,2),
+  currency VARCHAR(10),
+  number_of_bedrooms INT,
+  number_of_bathrooms INT,
+  max_guests INT,
+  amenities JSON,
+  images JSON,
+  availability_status BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (owner_id) REFERENCES users(id)
+
+
+
+  ----------------------------
+Schema::create('houses', function (Blueprint $table) {
+    $table->id();
+    $table->unsignedBigInteger('owner_id');
+    $table->string('title');
+    $table->text('description');
+    $table->decimal('price_per_night', 10, 2);
+    $table->string('currency', 10)->default('MAD');
+    $table->enum('house_type', ['apartment', 'villa', 'studio', 'room']);
+
+    $table->string('address');
+    $table->string('city');
+    $table->string('region')->nullable();
+    $table->decimal('latitude', 10, 7);
+    $table->decimal('longitude', 10, 7);
+
+    $table->integer('bedrooms');
+    $table->integer('bathrooms');
+    $table->integer('capacity');
+    $table->integer('area');
+    $table->boolean('furnished');
+    $table->boolean('wifi');
+    $table->boolean('air_conditioning');
+    $table->boolean('kitchen');
+    $table->boolean('balcony');
+    $table->json('amenities')->nullable();
+
+    $table->json('images');
+    
+    $table->date('available_from');
+    $table->date('available_to')->nullable();
+    $table->boolean('is_available')->default(true);
+
+    $table->string('phone');
+    $table->string('email')->nullable();
+    $table->boolean('verified')->default(false);
+    $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+
+    $table->timestamps();
+
+    $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+});

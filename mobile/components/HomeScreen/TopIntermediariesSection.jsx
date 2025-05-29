@@ -210,13 +210,13 @@ export default function TopIntermediariesSection() {
             key={agent.id}
             className="flex items-center mr-4 p-6 rounded-lg shadow-lg bg-white dark:bg-gray-900 mb-8"
           >
-            <Avatar size="xl" className="mr-6 flex-shrink-0">
+            <Avatar size="xl" className=" flex-shrink-0">
               <AvatarFallbackText>{agent.name.charAt(0)}</AvatarFallbackText>
               <AvatarImage source={{ uri: agent.image }} />
             </Avatar>
 
             <View className="flex-1">
-              <Text className="text-base font-bold text-gray-900 dark:text-white truncate">
+              <Text className="text-base font-bold text-gray-900 dark:text-white w">
                 {agent.name}
               </Text>
               <Text className="text-sm text-gray-500 dark:text-gray-300">
@@ -224,7 +224,7 @@ export default function TopIntermediariesSection() {
               </Text>
             </View>
 
-            <Button variant="solid" action="secondary" size="md" className="text-sm font-medium ml-6 mt-3 flex-shrink-0 whitespace-nowrap bg-brandBlue-500 data-[hover=true]:bg-brandBlue-300 data-[active=true]:bg-brandBlue-700">
+            <Button variant="solid" action="secondary" size="md" className="text-sm font-medium mt-3 flex-shrink-0 whitespace-nowrap bg-brandBlue-500 data-[hover=true]:bg-brandBlue-300 data-[active=true]:bg-brandBlue-700">
               {t("view_profile")}
             </Button>
           </Card>

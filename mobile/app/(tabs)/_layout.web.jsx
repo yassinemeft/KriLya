@@ -85,11 +85,14 @@ export default function TabLayout() {
           </HStack>
 
           <HStack className="space-x-2 hidden sm:flex items-center">
+            <Link href="/">
+              <LinkText>Home</LinkText>
+            </Link>
             <Link href="/login">
               <LinkText>Sign in</LinkText>
             </Link>
             <Divider orientation="vertical" className="mx-2.5" />
-            <Link href="/register">
+            <Link href="/signup">
               <LinkText>Sign up</LinkText>
             </Link>
           </HStack>
