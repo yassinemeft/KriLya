@@ -1,6 +1,7 @@
 import { Slot, Tabs } from "expo-router";
 import React from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import {Input,InputField} from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Divider } from "@/components/ui/divider";
 import { HStack } from "@/components/ui/hstack";
@@ -66,7 +67,12 @@ export default function TabLayout() {
         <Link href ="/contactus">
         <LinkText> Contact us </LinkText>
         </Link>
-        <NavDropdown/>
+        <Link href ="/profilowner">
+        <LinkText> profile middleman </LinkText>
+        </Link>
+         <Link href ="/profiluser">
+        <LinkText> profile user </LinkText>
+        </Link>
       </HStack>
     </HStack>
     
