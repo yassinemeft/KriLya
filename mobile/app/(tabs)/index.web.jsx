@@ -1,31 +1,26 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { View } from "react-native";
+import { useEffect } from "react";
+
+import axios from 'axios';
+import { API_URL } from "../../ApiConfig"; // Import the API URL from config
+
+import SearchSection from "@/components/HomeScreen/SearchSection";
+import HowItWorksSection from "@/components/HomeScreen/HowItWorksSection";
+import WhyChooseSection from "../../components/HomeScreen/WhyChooseSection";
+import FeaturedPropertiesSection from "@/components/HomeScreen/FeaturedPropertiesSection";
+import TopIntermediariesSection from "@/components/HomeScreen/TopIntermediariesSection";
 
 export default function HomeScreen() {
-  const { t } = useTranslation();
+
+
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{t('home.title')}</Text>
-      <Text style={styles.subtitle}>{t('home.subtitle')}</Text>
+    <View className="flex-1 justify-center items-center bg-blue-200 dark:bg-gray-800">
+      <SearchSection />
+      <HowItWorksSection />
+      <WhyChooseSection />
+      <FeaturedPropertiesSection />
+      <TopIntermediariesSection />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#666',
-  },
-});
