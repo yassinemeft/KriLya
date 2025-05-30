@@ -2,6 +2,7 @@ import { Slot, Tabs } from "expo-router";
 import * as React from "react";
 import { useState } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import {Input,InputField} from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Divider } from "@/components/ui/divider";
 import { HStack } from "@/components/ui/hstack";
@@ -84,6 +85,7 @@ export default function TabLayout() {
             </Button>
           </HStack>
 
+
           <HStack className="space-x-2 hidden sm:flex items-center">
             <Link href="/">
               <LinkText>Home</LinkText>
@@ -106,3 +108,47 @@ export default function TabLayout() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<VStack className="sm:hidden bg-white px-4 py-2 shadow">
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Github</ButtonText>
+  </Button>
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Twitter</ButtonText>
+  </Button>
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Discord</ButtonText>
+  </Button>
+</VStack>;
+
+<Image
+  source={require("@/assets/images/logo.png")}
+  alt="KriLya Logo"
+  className="hidden sm:flex w-full"
+  resizeMode="contain"
+  size="2xs"
+/>;
