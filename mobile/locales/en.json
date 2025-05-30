@@ -51,6 +51,7 @@
   "featured_properties": "Featured Properties",
   "featured_properties_desc": "Explore our handpicked selection of properties that stand out for their quality and value. These featured properties are carefully curated to offer you the best options available in the market.",
   "property_details": "Property Details",
+  "house_details": "House Details",
   "view_details": "View Details",
   "night": "Night",
   "rentals": "Rentals",
@@ -65,6 +66,8 @@
   "last_name": "Last Name",
   "email": "Email",
   "address": "Address",
+  "phone": "Phone",
+  "region": "Region",
   "your_address": "Your Address",
   "company_name": "Company Name",
   "password": "Password",
@@ -76,5 +79,9 @@
   "middleman": "Middleman",
   "login": "Login",
   "register": "Register",
-  "already_have_an_account": "Already have an account?"
+  "already_have_an_account": "Already have an account?",
+  "don't_have_an_account": "Don't have an account?",
+  "listed_by": "Listed by",
+  "agent_at": "Agent at",
+  "house_location": "House Location"
 }

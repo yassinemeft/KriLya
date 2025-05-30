@@ -2,16 +2,14 @@ import { useState } from "react";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import { VStack } from "@/components/ui/vstack";
+import { HStack } from "@/components/ui/hstack";
 import { Input, InputField } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-import { Picker } from "@react-native-picker/picker";
 import { ChevronDownIcon } from "@/components/ui/icon";
-import { useNavigation } from "@react-navigation/native";
-
+import { Link, LinkText } from "@/components/ui/link";
 import {
   Select,
   SelectTrigger,
@@ -217,10 +215,16 @@ export default function Signup() {
             </Text>
           </Button>
         </VStack>
-        <Text className="text-center text-gray-400 mt-6">
-          {t("already_have_an_account")}
-
+  <HStack className="justify-center mt-5">
+        <Text className=" text-gray-600 dark:text-gray-400">
+          {t("already_have_an_account")} {" "}
         </Text>
+          <Link  href="/login">
+          <LinkText className=" text-blue-600 dark:text-blue-400">
+            {t("login")}
+          </LinkText>
+          </Link>
+        </HStack>
       </Box>
     </View>
   );

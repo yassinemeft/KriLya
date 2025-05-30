@@ -1,65 +1,30 @@
-/* ─── FeaturedPropertiesSection.jsx ─────────────────────────────── */
-import { View, Text, ScrollView } from "react-native";
+import { useEffect, useState } from "react";
+import { View, Text, ScrollView, ActivityIndicator } from "react-native";
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
+
+
+import { API_URL } from '../../ApiConfig'; // Import the API URL from config
+import axios from "axios";
 
 export default function FeaturedPropertiesSection() {
   const { t } = useTranslation();
+  const navigation = useNavigation();
+  const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const listings = [
-    {
-      id: 1,
-      title: "Charming Riad with Patio",
-      city: "Marrakesh",
-      price: `1 200 MAD / ${t("night")}`,
-      img: "https://cdn-blog.zameen.com/blog/wp-content/uploads/2021/01/Blog-Cover-01-6.jpg",
-    },
-    {
-      id: 2,
-      title: "Stylish Apartment in City Center",
-      city: "Rabat",
-      price: `1 500 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-    {
-      id: 3,
-      title: "Cozy Guesthouse in Medina",
-      city: "Fez",
-      price: `900 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-    {
-      id: 4,
-      title: "Luxury Villa with Private Pool",
-      city: "Agadir",
-      price: `4 000 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-    {
-      id: 5,
-      title: "Modern Studio in Marina",
-      city: "Casablanca",
-      price: `1 800 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-    {
-      id: 6,
-      title: "Cozy Chalet in Atlas Mountains",
-      city: "Imlil",
-      price: `1 200 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-    {
-      id: 7,
-      title: "Boutique Hotel in Desert",
-      city: "Merzouga",
-      price: `2 500 MAD / ${t("night")}`,
-      img: "https://via.placeholder.com/400x300",
-    },
-  ];
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/featured-houses`) // Replace with your domain
+      .then((res) => setListings(res.data))
+      .catch((err) => console.error("Error fetching featured houses:", err))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <View className="w-full px-4 py-20 bg-white dark:bg-gray-900 mb-4">
@@ -70,45 +35,46 @@ export default function FeaturedPropertiesSection() {
         {t("featured_properties")}
       </Heading>
 
-      {/* Mobile: horizontal scroll */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        className="sm:hidden px-1 py-2"
-      >
-        {listings.map((property) => (
-          <PropertyCard key={property.id} {...property} className="mr-4 w-64" />
-        ))}
-      </ScrollView>
+      {loading ? (
+        <ActivityIndicator size="large" className="my-10" color="#2D9CDB" />
+      ) : (
+        <>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            className="sm:hidden px-1 py-2"
+          >
+            {listings.map((property) => (
+              <PropertyCard key={property.id} {...property} className="mr-4 w-64" />
+            ))}
+          </ScrollView>
 
-      {/* Desktop: grid layout */}
-      <View className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-2">
-        {listings.map((property) => (
-          <PropertyCard key={property.id} {...property} />
-        ))}
-      </View>
+          <View className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-2">
+            {listings.map((property) => (
+              <PropertyCard key={property.id} {...property} />
+            ))}
+          </View>
+        </>
+      )}
     </View>
   );
 }
 
-function PropertyCard({ title, city, price, img, className = "" }) {
+function PropertyCard({ id, title, city, price, img, className = "" }) {
   const { t } = useTranslation();
+  const navigation = useNavigation(); // 🔥 MISSING in your current code
 
   return (
-    <Card
-      className={`bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 ${className}`}
-    >
-      <Image
-        source={{ uri: img }}
-        className="h-40 w-full object-cover"
-      />
+    <Card className={`bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 ${className}`}>
+      <Image source={{ uri: img }} className="h-40 w-full object-cover" />
       <View className="p-3 space-y-1">
         <Text className="text-lg font-semibold text-gray-900 dark:text-white leading-snug">
           {title}
         </Text>
         <Text className="text-sm text-gray-600 dark:text-gray-300">{city}</Text>
-        <Text className="text-md font-bold text-brandRed-500 dark:text-brandGreen-500">{price}</Text>
+        <Text className="text-md font-bold text-brandRed-500 dark:text-brandGreen-500">{price} / {t("night")}</Text>
         <Button
+          onPress={() => navigation.navigate("PropertyDetails", { id })}
           variant="solid"
           action="secondary"
           className="w-full mt-5 py-2 text-sm font-medium bg-brandBlue-500 data-[hover=true]:bg-brandBlue-300 data-[active=true]:bg-brandBlue-700"
@@ -119,7 +85,5 @@ function PropertyCard({ title, city, price, img, className = "" }) {
     </Card>
   );
 }
-
-
 
 
