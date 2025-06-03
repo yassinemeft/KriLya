@@ -28,7 +28,7 @@ class HouseController extends Controller
 
     public function show($id)
     {
-        $house = House::with('images')->findOrFail($id);
+        $house = House::with('images', 'user')->findOrFail($id);
 
         return [
             'id' => $house->id,
@@ -50,6 +50,33 @@ class HouseController extends Controller
             'main_image' => $house->images->first()?->url ?? 'https://via.placeholder.com/400x300',
             'images' => $house->images->pluck('url'), // only image URLs
             'amenities' => $house->amenities->pluck('name'),
+
+            // ✅ Return landlord (owner) info
+            'owner' => [
+                'id' => $house->user->id,
+                'name' => $house->user->name,
+                'email' => $house->user->email,
+                'phone' => $house->user->phone ?? '+212 600 123 456',
+                'company' => $house->user->company ?? 'CozyStay Rentals',
+                'avatar' => $house->user->avatar ?? 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+                'description' => $house->user->description ?? 'Trusted agent with years of experience.',
+            ],
         ];
     }
+
+    public function getHousesByUser($id)
+{
+    $houses = House::where('owner_id', $id)->with('images')->get()->map(function ($house) {
+        return [
+            'id' => $house->id,
+            'title' => $house->title,
+            'price' => $house->price_per_night,
+            'city' => $house->city,
+            'main_image' => $house->images->first()?->url ?? 'https://via.placeholder.com/400x300',
+            'images' => $house->images->pluck('url'),
+        ];
+    });
+
+    return response()->json($houses);
+}
 }
