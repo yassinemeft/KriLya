@@ -2,6 +2,7 @@ import { Slot, Tabs } from "expo-router";
 import * as React from "react";
 import { useState } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import {Input,InputField} from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Divider } from "@/components/ui/divider";
 import { HStack } from "@/components/ui/hstack";
@@ -11,9 +12,9 @@ import { Link, LinkText } from "@/components/ui/link";
 import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useTheme } from "@/components/theme/ThemeProvider";
-
 import { View, ScrollView, SafeAreaView } from "react-native";
 import { useTranslation } from "react-i18next";
+
 
 
 import "../../i18n"; // Load translations
@@ -84,12 +85,16 @@ export default function TabLayout() {
             </Button>
           </HStack>
 
+
           <HStack className="space-x-2 hidden sm:flex items-center">
+            <Link href="/">
+              <LinkText>Home</LinkText>
+            </Link>
             <Link href="/login">
               <LinkText>Sign in</LinkText>
             </Link>
             <Divider orientation="vertical" className="mx-2.5" />
-            <Link href="/register">
+            <Link href="/signup">
               <LinkText>Sign up</LinkText>
             </Link>
           </HStack>
@@ -99,7 +104,51 @@ export default function TabLayout() {
         <Slot />
       </ScrollView>
     </SafeAreaView>
-
   );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<VStack className="sm:hidden bg-white px-4 py-2 shadow">
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Github</ButtonText>
+  </Button>
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Twitter</ButtonText>
+  </Button>
+  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
+    <ButtonText>Discord</ButtonText>
+  </Button>
+</VStack>;
+
+<Image
+  source={require("@/assets/images/logo.png")}
+  alt="KriLya Logo"
+  className="hidden sm:flex w-full"
+  resizeMode="contain"
+  size="2xs"
+/>;

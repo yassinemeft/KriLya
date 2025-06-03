@@ -2,16 +2,14 @@ import { useState } from "react";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import { VStack } from "@/components/ui/vstack";
+import { HStack } from "@/components/ui/hstack";
 import { Input, InputField } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-import { Picker } from "@react-native-picker/picker";
 import { ChevronDownIcon } from "@/components/ui/icon";
-import { useNavigation } from "@react-navigation/native";
-
+import { Link, LinkText } from "@/components/ui/link";
 import {
   Select,
   SelectTrigger,
@@ -27,6 +25,7 @@ import {
 
 import axios from "axios";
 import { API_URL } from "../../ApiConfig"; // Import the API URL from config
+
 export default function Signup() {
   const { t } = useTranslation();
 
@@ -80,15 +79,15 @@ export default function Signup() {
   return (
     <View>
       {/* big screen */}
-      <Box className="w-full max-w-md self-center bg-gray-800  p-8 shadow-lg mt-10">
-        <Heading className="text-center text-2xl font-bold mb-6 text-white">
+      <Box className="w-full max-w-md self-center bg-white dark:bg-gray-800 p-8 shadow-lg mt-10 rounded-xl">
+        <Heading className="text-center text-2xl font-bold mb-6 text-gray-800 dark:text-white">
           {t("sign_up")}
         </Heading>
         <VStack space="4" className="items-center">
-          <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+          <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
             {t("full_name")} :
           </Text>
-          <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4 ">
+          <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4 placeholder:text-gray-500 placeholder:text-opacity-50">
             <InputField
               value={form.name}
               onChangeText={(val) => handleChange("name", val)}
@@ -97,10 +96,10 @@ export default function Signup() {
             />
           </Input>
 
-          <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+          <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
             {t("email")} :
           </Text>
-          <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4 ">
+          <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4 placeholder:text-gray-500 placeholder:text-opacity-50">
             <InputField
               keyboardType="email-address"
               value={form.email}
@@ -110,10 +109,10 @@ export default function Signup() {
             />
           </Input>
 
-          <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+          <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
             {t("password")} :
           </Text>
-          <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4">
+          <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4 placeholder:text-gray-500 placeholder:text-opacity-50">
             <InputField
               secureTextEntry
               value={form.password}
@@ -122,24 +121,27 @@ export default function Signup() {
               placeholder={t("your_password")}
             />
           </Input>
-          <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+          <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
             {t("confirm_password")} :
           </Text>
-          <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4">
+          <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4 placeholder:text-gray-500 placeholder:text-opacity-50">
+
             <InputField
               secureTextEntry
               value={form.confirmPassword}
               onChangeText={(val) => handleChange("confirmPassword", val)}
               type="password"
+
               placeholder={t("confirm_password")}
+
             />
           </Input>
 
           
-              <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+              <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
                 {t("phone_number")}:
               </Text>
-              <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4">
+              <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4">
                 <InputField
                   value={form.phone_number}
                   onChangeText={(val) => handleChange("phone_number", val)}
@@ -149,7 +151,7 @@ export default function Signup() {
               </Input>
 
           {/* User Type Selection */}
-          <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+          <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
             {t("select_role")}:
           </Text>
           <Select
@@ -159,7 +161,7 @@ export default function Signup() {
             <SelectTrigger
               variant="solid"
               size="lg"
-              className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4"
+              className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4"
             >
               <SelectInput placeholder={t("select_role")} />
               <SelectIcon className="mr-3" as={ChevronDownIcon} />
@@ -179,10 +181,10 @@ export default function Signup() {
           {/* Landlord-only fields */}
           {userType === "landlord" && (
             <>
-              <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+              <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
                 {t("company_name")}:
               </Text>
-              <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4">
+              <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4">
                 <InputField
                   value={form.company_name}
                   onChangeText={(val) => handleChange("company_name", val)}
@@ -190,10 +192,10 @@ export default function Signup() {
                   placeholder={t("company_name")}
                 />
               </Input>
-              <Text className="text-blue-200 text-center mb-4 mt-4 font-bold">
+              <Text className="text-blue-600 dark:text-blue-200 text-center mb-4 mt-4 font-bold">
                 {t("address")}:
               </Text>
-              <Input className="w-72 bg-gray-900 border border-gray-600 rounded text-white px-4">
+              <Input className="w-72 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded text-gray-800 dark:text-white px-4">
                 <InputField
                   value={form.address}
                   onChangeText={(val) => handleChange("address", val)}
@@ -206,16 +208,23 @@ export default function Signup() {
 
           <Button
             onPress={handleSignUp}
-            className="bg-blue-600 rounded mt-4 w-72 data-[hover=true]:bg-brandRed-300 dark:data-[hover=true]:bg-brandGreen-300"
+            className="bg-brandBlue-500  data-[hover=true]:bg-gray-300 dark:data-[hover=true]:bg-gray-700 rounded mt-4 w-72"
           >
-            <Text className="text-white font-semibold text-center ">
+            <Text className="text-white font-semibold text-center">
               {t("sign_up")}
             </Text>
           </Button>
         </VStack>
-        <Text className="text-center text-gray-400 mt-6">
-          {t("already_have_an_account")}
+  <HStack className="justify-center mt-5">
+        <Text className=" text-gray-600 dark:text-gray-400">
+          {t("already_have_an_account")} {" "}
         </Text>
+          <Link  href="/login">
+          <LinkText className=" text-blue-600 dark:text-blue-400">
+            {t("login")}
+          </LinkText>
+          </Link>
+        </HStack>
       </Box>
     </View>
   );
