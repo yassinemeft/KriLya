@@ -18,7 +18,7 @@ const ContactPage = () => {
    const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
   return (
-    <ScrollView className="min-h-screen max-h-screen overflow-y-auto bg-gray-100 px-4 py-6 dark:bg-gray-900">
+   <scrollView className="min-h-screen max-h-screen overflow-y-auto flex-1 bg-gray-50 dark:bg-gray-900">
       <VStack className="space-y-xl items-center max-w-[640px] mx-auto">
         <VStack className="space-y-4 items-center mb-8">
           <Heading className="text-3xl text-center font-bold dark:text-brandGreen-500">
@@ -72,7 +72,7 @@ const ContactPage = () => {
                 ))}
               </SelectContent>
             </SelectPortal>
-          </Select>
+             </Select>
                       </View>
             </FormControl>
 
@@ -122,7 +122,7 @@ const ContactPage = () => {
         </HStack>
 </VStack>
       </VStack>
-    </ScrollView>
+    </scrollView>
   );
 };
 
