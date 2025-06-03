@@ -24,3 +24,5 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/featured-houses', [HouseController::class, 'featured']);
 
 Route::get('/houses/{id}', [HouseController::class, 'show']);
+
+Route::get('/users/{id}/houses', [HouseController::class, 'getHousesByUser']);
