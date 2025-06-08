@@ -96,7 +96,13 @@ export default function TabLayout() {
         <Link href ="/contactus">
         <LinkText> Contact us </LinkText>
         </Link>
-        <NavDropdown/>
+        <Link href ="/profilowner">
+        <LinkText> profil middlemen </LinkText>
+        </Link>
+        <Link href ="/profiluser">
+        <LinkText> profil </LinkText>
+        </Link>
+        
       </HStack>
     </HStack>
     
@@ -105,6 +111,7 @@ export default function TabLayout() {
 
 
     </View>
+    </SafeAreaView>
   );
 }
 
