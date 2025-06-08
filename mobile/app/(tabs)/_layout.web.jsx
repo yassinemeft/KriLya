@@ -85,32 +85,24 @@ export default function TabLayout() {
             </Button>
           </HStack>
 
-      <HStack className="space-x-2 hidden sm:flex items-center">
-        <Link href="/login">
-          <LinkText>Sign in</LinkText>
-        </Link>
-        <Divider orientation="vertical" className="mx-2.5" />
-        <Link href="/register">
-          <LinkText>Sign up</LinkText>
-        </Link>
-        <Link href ="/contactus">
-        <LinkText> Contact us </LinkText>
-        </Link>
-        <Link href ="/profilowner">
-        <LinkText> profil middlemen </LinkText>
-        </Link>
-        <Link href ="/profiluser">
-        <LinkText> profil </LinkText>
-        </Link>
-        
-      </HStack>
-    </HStack>
-    
 
-      <Slot />
-
-
-    </View>
+          <HStack className="space-x-2 hidden sm:flex items-center">
+            <Link href="/">
+              <LinkText>Home</LinkText>
+            </Link>
+            <Link href="/login">
+              <LinkText>Sign in</LinkText>
+            </Link>
+            <Divider orientation="vertical" className="mx-2.5" />
+            <Link href="/signup">
+              <LinkText>Sign up</LinkText>
+            </Link>
+          </HStack>
+        </HStack>
+      </View>
+      <ScrollView style={{ marginTop: 56 }}>
+        <Slot />
+      </ScrollView>
     </SafeAreaView>
   );
 }
