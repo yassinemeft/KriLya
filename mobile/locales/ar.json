@@ -90,5 +90,12 @@
   "amenities": "المرافق",
   "listed_by": "مقدم بواسطة",
   "agent_at": "وسيط في",
-  "house_location": "موقع المنزل"
+  "house_location": "موقع المنزل",
+  "footer_contact_us": "اتصل بنا:",
+  "footer_email": "البريد الإلكتروني",
+  "footer_phone": "رقم الهاتف",
+  "footer_rights": "© 2025 كريليا. جميع الحقوق محفوظة.",
+  "footer_thanks": "شكرًا لزيارتك لموقعنا!",
+  "footer_follow_us": "تابعنا على:"
+
 }

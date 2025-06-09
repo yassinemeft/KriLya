@@ -89,7 +89,7 @@ export default function SearchSection() {
           <View className="w-4" />
 
           <Button
-            className="bg-brandRed-500 dark:bg-brandBlue-500"
+            className="bg-brandRed-500 data-[hover=true]:bg-brandRed-300  dark:bg-brandBlue-500 dark:data-[hover=true]:bg-brandBlue-300"
             variant="solid"
             action="primary"
             onPress={() => console.log("Search")}

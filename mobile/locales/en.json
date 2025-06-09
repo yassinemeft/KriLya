@@ -83,5 +83,12 @@
   "don't_have_an_account": "Don't have an account?",
   "listed_by": "Listed by",
   "agent_at": "Agent at",
-  "house_location": "House Location"
+  "house_location": "House Location",
+  "footer_contact_us": "Contact us:",
+  "footer_email": "Email",
+  "footer_phone": "Phone",
+  "footer_rights": "© 2025 KriLya. All rights reserved.",
+  "footer_thanks": "Thank you for visiting our website!",
+  "footer_follow_us": "Follow us:"
+
 }

@@ -1,59 +1,64 @@
-import { Slot, Tabs } from "expo-router";
-import * as React from "react";
-import { useState } from "react";
+import { Slot } from "expo-router";
+import React, { useState } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import {Input,InputField} from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Divider } from "@/components/ui/divider";
 import { HStack } from "@/components/ui/hstack";
-import { Image } from "@/components/ui/image";
 import { VStack } from "@/components/ui/vstack";
+import { Image } from "@/components/ui/image";
 import { Link, LinkText } from "@/components/ui/link";
 import { Icon, SunIcon, MoonIcon, MenuIcon } from "@/components/ui/icon";
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import { TwitterIcon, FacebookIcon, InstagramIcon } from "lucide-react";
 import { useTheme } from "@/components/theme/ThemeProvider";
-import { View, ScrollView, SafeAreaView } from "react-native";
+import { View, ScrollView, SafeAreaView, Text } from "react-native";
 import { useTranslation } from "react-i18next";
 
-
-
-import "../../i18n"; // Load translations
-import { I18nextProvider } from "react-i18next";
-import i18n from "../../i18n";
-
 export default function TabLayout() {
+  // Récupère le schéma de couleur du système (clair/sombre)
   const colorScheme = useColorScheme();
-
+  // Récupère le thème actuel et la fonction pour le changer
   const { theme, toggleTheme } = useTheme();
-
-
-
+  // Récupère la fonction de traduction et l'objet i18n
   const { t, i18n } = useTranslation();
+
+  // État local pour la langue sélectionnée
   const [locale, setLocale] = useState(
     i18n.language.startsWith("ar") ? "ar" : "fr"
-
   );
 
-
+  // Fonction pour basculer entre les langues
   const toggleLanguage = () => {
-    const localeMap = {
-      en: "ar",
-      ar: "fr",
-      fr: "en",
-    };
+    const localeMap = { en: "ar", ar: "fr", fr: "en" };
     const newLocale = localeMap[locale];
     setLocale(newLocale);
-    i18n.changeLanguage(newLocale); // au lieu de i18n.locale = ...
+    i18n.changeLanguage(newLocale);
   };
 
+  // Année courante pour le copyright
+  const currentYear = new Date().getFullYear();
+
+  // Couleurs du footer selon le thème
+  const footerBg = theme === "light" ? "#1e40af" : "#000"; // fond du footer
+  const footerTextPrimary = theme === "light" ? "white" : "#22c55e"; // texte principal
+  const footerTextSecondary = theme === "light" ? "#cbd5e1" : "#6b7280"; // texte secondaire
+
+  // Constantes de style du footer
+  const logoWidth = 160;
+  const logoHeight = 40;
+  const titleFontSize = 18;
+  const contactFontSize = 20;
+  const copyrightFontSize = 20;
+  const footerNoteFontSize = 15;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ position: "absolute", width: "100%", zIndex: 1 }}>
+      {/* =================== Navbar =================== */}
+      <View style={{ width: "100%" }}>
         <HStack
           className="flex flex-row items-center justify-between h-14 px-7
-      bg-brandBlue-500 text-white dark:bg-black dark:text-brandGreen-500 shadow"
+        bg-brandBlue-500 text-white dark:bg-black dark:text-brandGreen-500 shadow"
         >
+          {/* Logo (affiché sur desktop) */}
           <Image
             source={require("@/assets/images/logo.png")}
             alt="KriLya Logo"
@@ -61,7 +66,9 @@ export default function TabLayout() {
             resizeMode="contain"
             size="xs"
           />
+          {/* Menu burger (affiché sur mobile) */}
           <Icon className="sm:hidden flex" as={MenuIcon} />
+          {/* Bouton pour changer le thème */}
           <Button onPress={toggleTheme}>
             <ButtonText>
               {theme === "light" ? (
@@ -71,10 +78,12 @@ export default function TabLayout() {
               )}
             </ButtonText>
           </Button>
-          <Button  onPress={toggleLanguage}>
+          {/* Bouton pour changer la langue */}
+          <Button onPress={toggleLanguage}>
             <ButtonText>{t("switch_language")}</ButtonText>
           </Button>
 
+          {/* Liens vers réseaux sociaux (desktop) */}
           <HStack className="space-x-2 hidden sm:flex items-center">
             <Button variant="link" size="xs">
               <ButtonText>Github</ButtonText>
@@ -85,7 +94,7 @@ export default function TabLayout() {
             </Button>
           </HStack>
 
-
+          {/* Liens de navigation (desktop) */}
           <HStack className="space-x-2 hidden sm:flex items-center">
             <Link href="/">
               <LinkText>Home</LinkText>
@@ -100,55 +109,101 @@ export default function TabLayout() {
           </HStack>
         </HStack>
       </View>
-      <ScrollView style={{ marginTop: 56 }}>
+
+      {/* =================== Contenu principal + Footer =================== */}
+      <ScrollView style={{ flex: 1 }}>
+        {/* Affiche la page courante */}
         <Slot />
+        <View style={{ height: 20 }} />
+        {/* =================== Footer =================== */}
+        <VStack
+          style={{
+            paddingVertical: 24,
+            paddingHorizontal: 16,
+            backgroundColor: footerBg,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* Logo dans le footer */}
+          <Image
+            source={require("@/assets/images/logo.png")}
+            alt="KriLya Logo"
+            className="hidden sm:flex w-full max-w-[200px]"
+            resizeMode="contain"
+            marginBottom={16}
+          />
+
+          {/* Informations de contact */}
+          <Text
+            style={{
+              color: footerTextPrimary,
+              fontSize: titleFontSize,
+              fontWeight: "700",
+              marginBottom: 6,
+            }}
+          >
+            {t("footer_contact_us")}
+          </Text>
+          <Link href="mailto:contact@krilya.com" style={{ marginBottom: 4 }}>
+            <Text
+              style={{ color: footerTextSecondary, fontSize: contactFontSize }}
+            >
+              {t("footer_email")} : contact@krilya.com
+            </Text>
+          </Link>
+          <Link href="tel:+212612345678" style={{ marginBottom: 16 }}>
+            <Text
+              style={{ color: footerTextSecondary, fontSize: contactFontSize }}
+            >
+              {t("footer_phone")} : +212 6 12 34 56 78
+            </Text>
+          </Link>
+
+          {/* Icônes des réseaux sociaux */}
+          <HStack space={24} style={{ marginBottom: 20 }}>
+            <Link
+              href="https://twitter.com/krilya"
+              target="_blank"
+              accessibilityLabel="Twitter"
+            >
+              <Icon as={TwitterIcon} color={footerTextPrimary} size={28} />
+            </Link>
+            <Link
+              href="https://facebook.com/krilya"
+              target="_blank"
+              accessibilityLabel="Facebook"
+            >
+              <Icon as={FacebookIcon} color={footerTextPrimary} size={28} />
+            </Link>
+            <Link
+              href="https://instagram.com/krilya"
+              target="_blank"
+              accessibilityLabel="Instagram"
+            >
+              <Icon as={InstagramIcon} color={footerTextPrimary} size={28} />
+            </Link>
+          </HStack>
+
+          {/* Copyright */}
+          <Text
+            style={{
+              color: footerTextPrimary,
+              fontSize: copyrightFontSize,
+              fontWeight: "600",
+              marginBottom: 2,
+            }}
+          >
+           {t("footer_rights")}
+          </Text>
+          {/* Note de remerciement */}
+          <Text
+            style={{ color: footerTextSecondary, fontSize: footerNoteFontSize }}
+          >
+            {t("footer_thanks")}
+          </Text>
+        </VStack>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<VStack className="sm:hidden bg-white px-4 py-2 shadow">
-  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
-    <ButtonText>Github</ButtonText>
-  </Button>
-  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
-    <ButtonText>Twitter</ButtonText>
-  </Button>
-  <Button variant="link" size="sm" onPress={() => setIsMenuOpen(false)}>
-    <ButtonText>Discord</ButtonText>
-  </Button>
-</VStack>;
-
-<Image
-  source={require("@/assets/images/logo.png")}
-  alt="KriLya Logo"
-  className="hidden sm:flex w-full"
-  resizeMode="contain"
-  size="2xs"
-/>;
