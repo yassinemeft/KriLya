@@ -97,6 +97,9 @@ export default function TabLayout() {
             <Link href="/signup">
               <LinkText>Sign up</LinkText>
             </Link>
+            <Link href="/profileuseraccount">
+              <LinkText>profileuseraccount</LinkText>
+            </Link>
           </HStack>
         </HStack>
       </View>
