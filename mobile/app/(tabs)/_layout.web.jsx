@@ -12,6 +12,8 @@ import { TwitterIcon, FacebookIcon, InstagramIcon } from "lucide-react";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { View, ScrollView, SafeAreaView, Text } from "react-native";
 import { useTranslation } from "react-i18next";
+import { HomeIcon } from "lucide-react";
+import { GlobeIcon } from "lucide-react";
 
 export default function TabLayout() {
   // Récupère le schéma de couleur du système (clair/sombre)
@@ -72,40 +74,56 @@ export default function TabLayout() {
           <Button onPress={toggleTheme}>
             <ButtonText>
               {theme === "light" ? (
-                <Icon className="text-typography-500" as={SunIcon} />
+                <Icon
+                  className="text-typography-500"
+                  as={SunIcon}
+                  Style={{ size: 24 }}
+                />
               ) : (
-                <Icon className="text-typography-500" as={MoonIcon} />
+                <Icon
+                  className="text-typography-500"
+                  as={MoonIcon}
+                  Style={{ size: 24 }}
+                />
               )}
             </ButtonText>
           </Button>
-          {/* Bouton pour changer la langue */}
-          <Button onPress={toggleLanguage}>
-            <ButtonText>{t("switch_language")}</ButtonText>
-          </Button>
 
-          {/* Liens vers réseaux sociaux (desktop) */}
-          <HStack className="space-x-2 hidden sm:flex items-center">
-            <Button variant="link" size="xs">
-              <ButtonText>Github</ButtonText>
-            </Button>
-            <Divider orientation="vertical" className="hidden mx-2.5" />
-            <Button variant="link" size="xs">
-              <ButtonText>Twitter</ButtonText>
-            </Button>
-          </HStack>
+          <Link href="/">
+            <HStack className="items-center space-x-1">
+              <Icon
+                as={HomeIcon}
+                size={20}
+                className="text-white dark:text-brandGreen-500"
+              />
+              <Text className="text-white dark:text-brandGreen-500 text-lg font-semibold ">
+                Home
+              </Text>
+            </HStack>
+          </Link>
 
           {/* Liens de navigation (desktop) */}
           <HStack className="space-x-2 hidden sm:flex items-center">
-            <Link href="/">
-              <LinkText>Home</LinkText>
-            </Link>
-            <Link href="/login">
-              <LinkText>Sign in</LinkText>
-            </Link>
-            <Divider orientation="vertical" className="mx-2.5" />
-            <Link href="/signup">
-              <LinkText>Sign up</LinkText>
-            </Link>
+            <HStack className="space-x-2 hidden sm:flex items-center">
+              <Button variant="link" size="xs">
+                <ButtonText>Sign in</ButtonText>
+              </Button>
+              <Divider orientation="vertical" className="hidden mx-2.5" />
+              <Button variant="link" size="xs">
+                <ButtonText>Sign up</ButtonText>
+              </Button>
+              {/* Bouton pour changer la langue */}
+              <Button onPress={toggleLanguage}>
+                <HStack className="items-center space-x-1">
+                  <Icon
+                    as={GlobeIcon}
+                    size={20}
+                    className="text-white dark:text-brandGreen-500"
+                  />
+                  <ButtonText>{t("switch_language")}</ButtonText>
+                </HStack>
+              </Button>
+            </HStack>
           </HStack>
         </HStack>
       </View>
@@ -194,7 +212,7 @@ export default function TabLayout() {
               marginBottom: 2,
             }}
           >
-           {t("footer_rights")}
+            {t("footer_rights")}
           </Text>
           {/* Note de remerciement */}
           <Text
