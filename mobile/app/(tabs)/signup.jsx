@@ -208,9 +208,9 @@ export default function Signup() {
 
           <Button
             onPress={handleSignUp}
-            className="bg-brandRed-500 dark:bg-brandGreen-400 hover:bg-blue-700 dark:hover:bg-brandGreen-500 rounded mt-4 w-72"
+            className="bg-brandRed-500 data-[hover=true]:bg-brandRed-300  dark:bg-brandBlue-500 dark:data-[hover=true]:bg-brandBlue-300 rounded mt-4 w-72"
           >
-            <Text className="text-white font-semibold text-center ">
+            <Text className="text-white font-semibold text-center">
               {t("sign_up")}
             </Text>
           </Button>

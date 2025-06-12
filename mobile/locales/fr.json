@@ -90,5 +90,12 @@
   "amenities": "Commodités",
   "listed_by": "Listé par",
   "agent_at": "Agent chez",
-  "house_location": "Localisation de la maison"
+  "house_location": "Localisation de la maison",
+  "footer_contact_us": "Contactez-nous :",
+  "footer_email": "Email",
+  "footer_phone": "Téléphone",
+  "footer_rights": "© 2025 KriLya. Tous droits réservés.",
+  "footer_thanks": "Merci de visiter notre site !",
+  "footer_follow_us": "Suivez-nous :"
+
 }
