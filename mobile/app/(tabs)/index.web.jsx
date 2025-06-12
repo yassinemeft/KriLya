@@ -9,12 +9,14 @@ import HowItWorksSection from "@/components/HomeScreen/HowItWorksSection";
 import WhyChooseSection from "../../components/HomeScreen/WhyChooseSection";
 import FeaturedPropertiesSection from "@/components/HomeScreen/FeaturedPropertiesSection";
 import TopIntermediariesSection from "@/components/HomeScreen/TopIntermediariesSection";
+import { ScrollView } from "react-native-web";
 
 export default function HomeScreen() {
 
 
 
   return (
+    <ScrollView className="flex-1 bg-gray-100 dark:bg-gray-900">
     <View className="flex-1 justify-center items-center bg-blue-200 dark:bg-gray-800">
       <SearchSection />
       <HowItWorksSection />
@@ -22,5 +24,6 @@ export default function HomeScreen() {
       <FeaturedPropertiesSection />
       <TopIntermediariesSection />
     </View>
+    </ScrollView>
   );
 }

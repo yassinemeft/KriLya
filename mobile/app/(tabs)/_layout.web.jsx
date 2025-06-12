@@ -201,6 +201,9 @@ export default function TabLayout() {
             >
               <Icon as={InstagramIcon} color={footerTextPrimary} size={28} />
             </Link>
+            <Link href="/profileuseraccount">
+              <LinkText>profileuseraccount</LinkText>
+            </Link>
           </HStack>
 
           {/* Copyright */}
