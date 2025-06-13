@@ -1,17 +1,15 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { Box} from '@/components/ui/box';
+import { ScrollView, Alert } from 'react-native';
+import { Box } from '@/components/ui/box';
 import { VStack } from '@/components/ui/vstack';
-import { HStack} from '@/components/ui/hstack';
+import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
-import { Input, InputField} from '@/components/ui/input';
-import { Button} from '@/components/ui/button';
-import { Avatar} from '@/components/ui/avatar';
+import { Input, InputField } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Avatar } from '@/components/ui/avatar';
 import { Pressable } from '@/components/ui/pressable';
-import { Divider} from '@/components/ui/divider';
-import { Alert } from 'react-native';
-import { Link, LinkText} from '@/components/ui/link';
-
+import { Divider } from '@/components/ui/divider';
+import { Link, LinkText } from '@/components/ui/link';
 
 const ProfileScreen = () => {
   return (
@@ -85,7 +83,7 @@ const ProfileScreen = () => {
               </VStack>
 
               <Pressable
-                className="mt-6 bg-indigo-600 rounded-xl py-3 px-10 shadow-md hover:bg-white " 
+                className="mt-6 bg-indigo-600 rounded-xl py-3 px-10 shadow-md hover:bg-white"
                 _pressed={{ bg: 'indigo.800' }}
               >
                 <Text className="text-black font-semibold text-lg text-center dark:text-white">
@@ -99,66 +97,65 @@ const ProfileScreen = () => {
           <Box className="bg-white rounded-3xl shadow-xl p-8 flex-1 dark:bg-gray-900">
             {/* Tabs */}
             <HStack className="space-x-10 mb-6 border-b border-gray-200 pb-3">
-                   <Link onPress={() => Alert.alert('Account Info clicked')}>
-        <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1 ">
-          Account Info
-        </LinkText>
-      </Link>
-         <Link onPress={() => Alert.alert('Reviews clicked')}>
-        <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1">
-           Reviews
-        </LinkText>
-      </Link>
-       <Link onPress={() => Alert.alert('Settings clicked')}>
-        <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1">
-           Settings
-        </LinkText>
-      </Link>
+              <Link onPress={() => Alert.alert('Account Info clicked')}>
+                <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1">
+                  Account Info
+                </LinkText>
+              </Link>
+              <Link onPress={() => Alert.alert('Reviews clicked')}>
+                <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1">
+                  Reviews
+                </LinkText>
+              </Link>
+              <Link onPress={() => Alert.alert('Settings clicked')}>
+                <LinkText className="text-indigo-700 font-semibold border-b-2 border-indigo-700 pb-1">
+                  Settings
+                </LinkText>
+              </Link>
             </HStack>
 
             {/* Form inputs */}
             <VStack className="space-y-6">
               <HStack className="space-x-6">
-                <text>First Name</text>
-                 <Input className="flex-1">
-    <InputField placeholder="First Name" defaultValue="Mohamed" />
-  </Input>
-              <text>Last Name</text>
-             <Input className="flex-1">
-    <InputField placeholder="Last Name" defaultValue="Abouzrar" />
-  </Input>
+                <Text className="text-base text-gray-800 dark:text-white">First Name</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="First Name" defaultValue="Mohamed" />
+                </Input>
+                <Text className="text-base text-gray-800 dark:text-white">Last Name</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="Last Name" defaultValue="Abouzrar" />
+                </Input>
               </HStack>
 
               <HStack className="space-x-6">
-                <text>Phone Number</text>
-                           <Input className="flex-1">
-                           
-    <InputField placeholder="Phone Number" defaultValue="(+212) 636834185" />
-  </Input>
-   <text>Email</text>
-             <Input className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-base text-gray-800 dark:text-white">
-            
-    <InputField placeholder="Email" defaultValue="MohamedAbouzrar0@gmail" keyboardType="phone-pad" />
-  </Input>
-
+                <Text className="text-base text-gray-800 dark:text-white">Phone Number</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="Phone Number" defaultValue="(+212) 636834185" />
+                </Input>
+                <Text className="text-base text-gray-800 dark:text-white">Email</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="Email" defaultValue="MohamedAbouzrar0@gmail" keyboardType="email-address" />
+                </Input>
               </HStack>
 
               <HStack className="space-x-6">
-                <text>Agency</text>
-                             <Input className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-base text-gray-800 dark:text-white">
-    <InputField placeholder="Agency" defaultValue="dahmad botgmaw" />
-  </Input>
-  <text>Website(optinal)</text>
-                <Input className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-base text-gray-800 dark:text-white">
-    <InputField placeholder="Website" defaultValue="www.carterrealty.com" />
-  </Input>
+                <Text className="text-base text-gray-800 dark:text-white">Agency</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="Agency" defaultValue="dahmad botgmaw" />
+                </Input>
+                <Text className="text-base text-gray-800 dark:text-white">Website (optional)</Text>
+                <Input className="flex-1">
+                  <InputField placeholder="Website" defaultValue="www.carterrealty.com" />
+                </Input>
               </HStack>
 
+              {/* Modified Save Changes Button */}
               <Button
-                className="bg-indigo-700 rounded-xl py-3 px-10 self-start shadow-lg hover:bg-indigo-800 active:bg-indigo-900"
-                _pressed={{ bg: 'indigo.800' }}
+                className="mt-6 w-44 bg-brandRed-500 data-[hover=true]:bg-brandRed-300 dark:bg-brandBlue-500 dark:data-[hover=true]:bg-brandBlue-300 rounded items-center justify-center self-center"
               >
-                <Text className="text-black  font-semibold dark:text-white">Save Changes</Text>
+                <Text className="text-white font-semibold text-center">
+                  Save Changes
+                </Text>
               </Button>
             </VStack>
           </Box>

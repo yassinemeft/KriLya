@@ -62,7 +62,11 @@ export default function TabLayout() {
         >
           {/* Logo (affiché sur desktop) */}
           <Image
-            source={require("@/assets/images/logo.png")}
+            source={
+              theme === "light"
+                ? require("@/assets/images/logo.png")
+                : require("@/assets/images/LOGO DARK.png")
+            }
             alt="KriLya Logo"
             className="hidden sm:flex w-full max-w-[200px]"
             resizeMode="contain"
@@ -145,7 +149,11 @@ export default function TabLayout() {
         >
           {/* Logo dans le footer */}
           <Image
-            source={require("@/assets/images/logo.png")}
+            source={
+              theme === "light"
+                ? require("@/assets/images/logo.png")
+                : require("@/assets/images/LOGO DARK.png")
+            }
             alt="KriLya Logo"
             className="hidden sm:flex w-full max-w-[200px]"
             resizeMode="contain"
@@ -200,9 +208,6 @@ export default function TabLayout() {
               accessibilityLabel="Instagram"
             >
               <Icon as={InstagramIcon} color={footerTextPrimary} size={28} />
-            </Link>
-            <Link href="/profileuseraccount">
-              <LinkText>profileuseraccount</LinkText>
             </Link>
           </HStack>
 
