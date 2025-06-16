@@ -34,11 +34,13 @@ export default function LoginScreen() {
         email: form.email,
         password: form.password,
       };
-      const response = await axios.post(`${API_URL}/login`, payload);
+      const response = await axios.post(`${API_URL}/login`, payload, {
+        withCredentials: true, // ⬅️ Important pour envoyer le cookie !
+
+      });
       console.log("Login successful", response.data);
       // ✅ Send to Home screen (works with Tabs or Stack)
-      // navigation.navigate("Home");
-      navigation.navigate("/");
+      navigation.replace("/");
     } catch (err) {
       console.error("Login error", err.response?.data || err.message);
       setError(err.response?.data?.message || "Login failed");

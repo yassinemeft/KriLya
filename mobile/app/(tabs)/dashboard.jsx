@@ -10,9 +10,9 @@ export default function Dashboard() {
   const { t } = useTranslation();
 
   const listings = [
-    { id: 1, title: 'Charming Riad with Patio', city: 'Marrakesh', price: `1 200 MAD / ${t('night')}`, img: 'https://cdn-blog.zameen.com/blog/wp-content/uploads/2021/01/Blog-Cover-01-6.jpg' },
-    { id: 2, title: 'Stylish Apartment in City Center', city: 'Rabat', price: `1 500 MAD / ${t('night')}`, img: 'https://via.placeholder.com/400x300' },
-    { id: 3, title: 'Cozy Guesthouse in Medina', city: 'Fez', price: `900 MAD / ${t('night')}`, img: 'https://via.placeholder.com/400x300' },
+    { id: 1, title: 'Charming Riad with Patio', city: 'Casablanca', price: `200 MAD / ${t('night')}`, img: 'https://cdn-blog.zameen.com/blog/wp-content/uploads/2021/01/Blog-Cover-01-6.jpg' },
+    { id: 2, title: 'Stylish Apartment in City Center', city: 'Rabat', price: `500 MAD / ${t('night')}`, img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { id: 3, title: 'Cozy Guesthouse in Medina', city: 'Fez', price: `900 MAD / ${t('night')}`, img: 'https://cdn-blog.zameen.com/blog/wp-content/uploads/2021/01/Blog-Cover-01-3.jpg' },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function Dashboard() {
       {/* Sidebar agrandie */}
       <View className="w-64 bg-gray-200 dark:bg-gray-800 p-4 space-y-4">
         <Text className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Dashboard</Text>
-        {['Statistiques', 'Utilisateurs', 'Paramètres', 'Support'].map((item) => (
+        {['My profile', 'My offers', 'Statistics', 'Help & Support'].map((item) => (
           <TouchableOpacity
             key={item}
             className="py-2 px-4 rounded-lg bg-brandBlue-500 text-white text-center hover:bg-gray-300 hover:text-gray-700"

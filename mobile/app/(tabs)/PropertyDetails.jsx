@@ -154,14 +154,14 @@ export default function PropertyDetails() {
             </Text>
 
             {/* Placeholder Avatar */}
-            <View className="items-center mb-4">
+            <View className="items-center mb-8">
               <Avatar size="2xl">
                 <AvatarFallbackText>
                   {house.owner?.name || "Unknown"}
                 </AvatarFallbackText>
                 <AvatarImage
                   source={{
-                    uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                    uri: house.owner?.avatar
                   }}
                 />
                 <AvatarBadge className="border-0">
@@ -176,7 +176,7 @@ export default function PropertyDetails() {
                 {house.owner?.name || "Unknown"}
               </Text>
               <Text className="text-sm text-gray-500 dark:text-gray-300">
-                {t("agent_at")} CozyStay
+                {t("agent_at")} {house.owner?.company || "Unknown"}
               </Text>
             </View>
 
@@ -206,9 +206,9 @@ export default function PropertyDetails() {
               {t("View Profile")}
             </Button>
           </View>
-          <View className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md mt-7">
+          <View className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md mt-8">
             {/* House Location */}
-            <View className="mt-4">
+            <View className="mt-8">
               <Text className="text-lg font-semibold text-gray-800 dark:text-white">
                 {t("house_location")}{" "}
               </Text>
@@ -303,6 +303,13 @@ export default function PropertyDetails() {
           <DetailRow label={t("email")} value="johndoe@example.com" />
           <DetailRow label={t("phone")} value="+212 600 123 456" />
           <DetailRow label={t("company_name")} value="CozyStay Rentals" />
+          <Button
+              variant="solid"
+              className="mt-2 bg-brandBlue-500 dark:text-white data-[hover=true]:bg-brandBlue-300"
+              onPress={() => navigation.navigate("profiluser", { owner: house.owner })}
+            >
+              {t("View Profile")}
+            </Button>
         </View>
 
         {/* Location Map */}

@@ -26,3 +26,5 @@ Route::get('/featured-houses', [HouseController::class, 'featured']);
 Route::get('/houses/{id}', [HouseController::class, 'show']);
 
 Route::get('/users/{id}/houses', [HouseController::class, 'getHousesByUser']);
+
+Route::post('/search', [HouseController::class, 'search']);

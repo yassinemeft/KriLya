@@ -57,7 +57,7 @@ const ClientProfileScreen = () => {
       {/* Header */}
       <Box className="bg-blue-700 shadow p-4 items-center dark:bg-black">
         <Text className="text-white text-2xl font-bold dark:text-brandGreen-500">
-          Agent Profile
+          {t("agent_profile")}
         </Text>
       </Box>
 
@@ -70,7 +70,7 @@ const ClientProfileScreen = () => {
               <AvatarFallbackText>{owner?.name}</AvatarFallbackText>
               <AvatarImage
                 source={{
-                  uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                  uri: owner?.avatar || "https://via.placeholder.com/150",
                 }}
               />
               <AvatarBadge className="border-0">
@@ -91,14 +91,14 @@ const ClientProfileScreen = () => {
           <VStack className="space-y-2">
             <DetailRow label={t("email")} value={owner?.email} />
             <DetailRow label={t("phone")} value={owner?.phone} />
-            <DetailRow label={t("address")} value={owner?.address} />
+            <DetailRow label={t("address")} value={owner?.address || "Essaouira"} />
             <DetailRow label={t("company_name")} value={owner?.company} />
             <Text className="text-gray-700 dark:text-gray-300">
               {owner?.description}
             </Text>
           </VStack>
         </Box>
-        <Box className="bg-white rounded-2xl shadow-md p-4 w-full dark:bg-gray-900">
+        <Box className="bg-white rounded-2xl shadow-md p-6 w-full dark:bg-gray-900">
           <View className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-2">
             {houses.map((property) => (
               <PropertyCard key={property.id} {...property} />

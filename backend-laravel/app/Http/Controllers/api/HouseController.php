@@ -13,7 +13,7 @@ class HouseController extends Controller
     {
         return House::with(['images' => fn($q) => $q->where('is_main', true)])
             ->latest()
-            ->take(7)
+            ->take(8)
             ->get()
             ->map(function ($house) {
                 return [
@@ -56,9 +56,10 @@ class HouseController extends Controller
                 'id' => $house->user->id,
                 'name' => $house->user->name,
                 'email' => $house->user->email,
+                'address' => $house->user->address,
                 'phone' => $house->user->phone ?? '+212 600 123 456',
-                'company' => $house->user->company ?? 'CozyStay Rentals',
-                'avatar' => $house->user->avatar ?? 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+                'company' => $house->user->company ?? 'Kri Rentals',
+                'avatar' => $house->user->avatar ?? 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
                 'description' => $house->user->description ?? 'Trusted agent with years of experience.',
             ],
         ];
@@ -79,4 +80,30 @@ class HouseController extends Controller
 
     return response()->json($houses);
 }
+
+public function search(Request $request)
+{
+    $query = House::query()->with(['images' => fn($q) => $q->where('is_main', true)]);
+
+    if ($request->has('type') && $request->type != '') {
+        $query->where('house_type', $request->type);
+    }
+
+    $houses = $query->get()->map(function ($house) {
+        return [
+            'id' => $house->id,
+            'title' => $house->title,
+            'city' => $house->city,
+            'price' => number_format($house->price_per_night, 0, '', ' ') . ' MAD',
+            'img' => $house->images->first()->url ?? 'https://via.placeholder.com/400x300',
+        ];
+    });
+
+    return response()->json($houses);
+}
+
+
+
+
+
 }

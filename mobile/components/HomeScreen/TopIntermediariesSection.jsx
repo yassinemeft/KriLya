@@ -179,7 +179,7 @@ export default function TopIntermediariesSection() {
         size="lg"
         className="mb-10 text-center font-bold text-3xl tracking-tight text-gray-900 dark:text-brandGreen-500"
       >
-        Trusted Intermediaries
+        {t("top_agents")}
       </Heading>
 
       {/* Mobile: horizontal scroll */}
@@ -215,8 +215,8 @@ export default function TopIntermediariesSection() {
               <AvatarImage source={{ uri: agent.image }} />
             </Avatar>
 
-            <View className="flex-1">
-              <Text className="text-base font-bold text-gray-900 dark:text-white w">
+            <View className="flex-1 items-center">
+              <Text className="text-base font-bold text-gray-900 dark:text-white">
                 {agent.name}
               </Text>
               <Text className="text-sm text-gray-500 dark:text-gray-300">
